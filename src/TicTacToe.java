@@ -129,10 +129,9 @@ public class TicTacToe {
             return;
         } else if (board[0][2].getText() == board[1][1].getText() && board[1][1].getText() == board[2][0].getText() && board[0][2].getText() != "") {
             // Markers across the diagonal match, and that player has won
-            setWinner(board[0][2]);
-            setWinner(board[1][1]);
-            setWinner(board[2][0]);
-
+            for (int i = 0; i < 3; i++) {
+                setWinner(board[i][2-i]);
+            }
             gameOver = true;
             return;
         }
@@ -144,7 +143,6 @@ public class TicTacToe {
                     setDraw(board[r][c]);
                 }
             }
-
             gameOver = true;
         }
     }
